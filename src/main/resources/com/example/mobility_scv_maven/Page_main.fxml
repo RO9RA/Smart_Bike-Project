@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="320.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mobility_scv_maven.MainController">
+   <children>
+      <BorderPane fx:id="pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <AnchorPane prefHeight="50.0" prefWidth="480.0" style="-fx-background-color: Gray;" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="export_btn" layoutX="320.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#click_Export" prefHeight="40.0" prefWidth="160.0" style="-fx-text-fill: Black;" text="Export">
+                     <font>
+                        <Font size="20.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="str_btn" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#click_start" prefHeight="40.0" prefWidth="160.0" style="-fx-text-fill: Black;" text="Start">
+                     <font>
+                        <Font size="20.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="stp_btn" layoutX="160.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#click_stop" prefHeight="40.0" prefWidth="160.0" style="-fx-text-fill: Black;" text="Stop">
+                     <font>
+                        <Font size="20.0" />
+                     </font></JFXButton>
+                  <Line endX="-85.99998474121094" endY="33.946285247802734" layoutX="246.0" layoutY="12.0" startX="-85.99998474121094" startY="-7.000004768371582">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Line>
+                  <Line endX="-85.99998474121094" endY="33.946285247802734" layoutX="405.0" layoutY="12.0" startX="-85.99998474121094" startY="-7.000004768371582" />
+               </children></AnchorPane>
+         </bottom>
+         <top>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="480.0" style="-fx-background-color: Gray;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblDate" text="Label" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <AnchorPane fx:id="pane_main" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <bottom>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Max Speed :">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="lblspeed" text="0.000">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label text="Km/h">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </bottom>
+                     <center>
+                        <ScrollPane fx:id="scroll" fitToHeight="true" hbarPolicy="ALWAYS" maxWidth="1.7976931348623157E308" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
+                          <content>
+                            <AnchorPane>
+                                 <children>
+                                    <LineChart fx:id="LineChart" animated="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <xAxis>
+                                          <NumberAxis autoRanging="false" lowerBound="0" maxWidth="1.7976931348623157E308" tickLength="5.0" tickUnit="5" upperBound="30.0" fx:id="xAxis" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis fx:id="yAxis" autoRanging="false" lowerBound="0" tickLength="5.0" tickUnit="5" upperBound="20" />
+                                       </yAxis>
+                                    </LineChart>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                           <cursor>
+                              <Cursor fx:constant="NONE" />
+                           </cursor>
+                        </ScrollPane>
+                     </center>
+                  </BorderPane>
+               </children></AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
