@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class StartController {
-
+    Thread thread_Data;
     public void OnConnectAction(MouseEvent e) throws IOException, InterruptedException {
         RemoteDevice.RemoteDeviceDiscovery();
         if(RemoteDevice.ConnectDevice("98D3A1FD3918","1")){
@@ -20,6 +20,8 @@ public class StartController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+
+
 
         }else{
             System.out.println("Not Connected");

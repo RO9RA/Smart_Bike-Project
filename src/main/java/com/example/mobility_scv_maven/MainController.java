@@ -36,6 +36,7 @@ public class MainController implements Initializable {
 
 
     Thread thread,thread_chart,thread_Data;
+    static boolean Thread_state=true;
     long start_time,end_time;
 
     @Override
@@ -55,10 +56,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void click_start(){
-        start_time = System.currentTimeMillis();
-        System.out.println("Start TIme : "+start_time);
-
+    private void click_start() throws IOException {
         //멀티 스래드를 사용
         thread_Data = new Thread(DataTask.task);
         //background Service 지정
@@ -66,11 +64,21 @@ public class MainController implements Initializable {
         //Data receive Thread 시작
         thread_Data.start();
 
+        start_time = System.currentTimeMillis();
+        System.out.println("Start Time : "+start_time);
+        RemoteDevice.out.write(1);
+
+        str_btn.setDisable(true);
         export_btn.setDisable(true);
 
         thread = new Thread(() -> {
+            try {
+                thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             System.out.println("data thread start");
-            while(!Thread.currentThread().isInterrupted()){
+            while(Thread_state){
                 Platform.runLater(()->{
                     lblspeed.setText(DBHandler.Max_data());
                 });
@@ -83,6 +91,12 @@ public class MainController implements Initializable {
         });
 
         thread_chart = new Thread(() -> {
+            try {
+                thread.sleep(500);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
             System.out.println("chart thread start");
             XYChart.Series<Number, Number> series1 = new XYChart.Series<>();
             ArrayList<Integer> speed = DBHandler.speed_data();
@@ -94,37 +108,36 @@ public class MainController implements Initializable {
             Platform.runLater(()->{
                 LineChart.getData().add(series1);
             });
-
-            while(!Thread.currentThread().isInterrupted()){
+            while(Thread_state) {
+                System.out.println("chartThread!!!!!!!!!!!!!!!!");
                 speed = DBHandler.speed_data();
                 ArrayList<Integer> finalSpeed = speed;
 
-                Platform.runLater(()->{
-
+                Platform.runLater(() -> {
                     series1.getData().clear();
 
-                    for(int i = 0; i < finalSpeed.size(); i++){
-                        series1.getData().add(new XYChart.Data<>(i+1, finalSpeed.get(i)));
+                    for (int i = 0; i < finalSpeed.size(); i++) {
+                        System.out.println("SpeedCount : " + i);
+                        series1.getData().add(new XYChart.Data<>(i + 1, -1 * finalSpeed.get(i) / 270));
                     }
 
-                    if(finalSpeed.size() < 30){
+                    if (finalSpeed.size() < 30) {
                         xAxis.setUpperBound(30);
-                        LineChart.setPrefWidth(30*20);
-                    }else{
-                        xAxis.setUpperBound(finalSpeed.size()+3);
-                        LineChart.setPrefWidth((finalSpeed.size()+3)*20);
+                        LineChart.setPrefWidth(30 * 20);
+                    } else {
+                        xAxis.setUpperBound(finalSpeed.size() + 3);
+                        LineChart.setPrefWidth((finalSpeed.size() + 3) * 20);
                         scroll.setHvalue(1.0d);
                     }
                 });
-
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
             }
         });
+
         thread.setDaemon(true);
         thread.start();
         thread_chart.setDaemon(true);
@@ -132,13 +145,11 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void click_stop() throws IOException {
-        //Thread.sleep(00);
-        thread.stop();
-        thread_chart.stop();
-        thread_Data.stop();
+    private void click_stop() throws IOException{
+        Thread_state=false;
         RemoteDevice.out.write(0);
 
+        str_btn.setDisable(false);
         export_btn.setDisable(false);
         System.out.println("stop");
         end_time=System.currentTimeMillis();

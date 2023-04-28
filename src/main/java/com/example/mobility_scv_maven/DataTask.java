@@ -1,5 +1,6 @@
 package com.example.mobility_scv_maven;
 
+import com.sun.tools.javac.Main;
 import javafx.concurrent.Task;
 
 import java.io.*;
@@ -10,7 +11,6 @@ public class DataTask {
     static Task<Void> task = new Task<>() {
         @Override
         protected Void call() throws IOException {
-
             try{
                 // Connect DB
                 DBHandler.connect();
@@ -22,12 +22,11 @@ public class DataTask {
                 throw new RuntimeException(e);
             }
             // Code
-            System.out.println("Start App");
+            System.out.println("Start thread_data");
 
             InputStreamReader isr = new InputStreamReader(RemoteDevice.in);
             BufferedReader br = new BufferedReader(isr);
-            RemoteDevice.out.write(1);
-            while(true){
+            while(MainController.Thread_state){
                 try {
                     //문자열 한줄 입력받기
                     String bytesRead = br.readLine();
@@ -35,6 +34,7 @@ public class DataTask {
                         DBHandler.insertData(data);
                     }else{
                         data.add(bytesRead);
+                        //System.out.println("  : "+bytesRead);
                     }
                     RemoteDevice.conn.close();
                 } catch (IOException e) {
@@ -42,6 +42,7 @@ public class DataTask {
                     e.printStackTrace();
                 }
             }
+            return null;
         }
     };
 }

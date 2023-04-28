@@ -10,33 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed4821cc-757f-4414-a7f0-3f7f59778c77" name="Changes" comment="1.Demo Version completed">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/bluecove-2.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/bluecove-gpl-2.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jfoenix-9.0.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/sqlite-jdbc-3.40.1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DBHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DataTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/ExportController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/MainAct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/RemoteDevice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/StartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Export.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Page_main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Start_page.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DataTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DataTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/StartController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +118,14 @@
       <option name="presentableId" value="Default" />
       <updated>1674095358117</updated>
     </task>
+    <task id="LOCAL-00001" summary="1.Demo Version completed">
+      <created>1682593306244</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593306244</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,6 +141,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="1.Demo Version completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.Demo Version completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
