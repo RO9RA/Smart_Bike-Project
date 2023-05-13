@@ -74,12 +74,6 @@ public class RemoteDevice{
         return Check;
     }
 
-/*    public static void SendDB(byte[] bytes) throws IOException {
-        Socket
-        out.write(bytes);
-        out.flush();
-    }*/
-
     //Device Disconnect Code
     public static void Disconnect() throws IOException
     {

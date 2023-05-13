@@ -9,12 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed4821cc-757f-4414-a7f0-3f7f59778c77" name="Changes" comment="1.Demo Version completed">
+    <list default="true" id="ed4821cc-757f-4414-a7f0-3f7f59778c77" name="Changes" comment="2.Modify thread related code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/ChartTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/TimeTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DBHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DataTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DataTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/RemoteDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/RemoteDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Page_main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Page_main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,24 +58,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/test/workspace/javafx/javafx-sdk-17.0.2/lib",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.12804097",
-    "project.structure.side.proportion": "0.17379436",
-    "service.view.auto.scroll.to.source": "true",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/test/workspace/javafx/javafx-sdk-17.0.2/lib&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.12804097&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.17379436&quot;,
+    &quot;service.view.auto.scroll.to.source&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -125,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682593306244</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2.Modify thread related code">
+      <created>1682673195339</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682673195339</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,7 +153,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1.Demo Version completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.Demo Version completed" />
+    <MESSAGE value="2.Modify thread related code" />
+    <option name="LAST_COMMIT_MESSAGE" value="2.Modify thread related code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

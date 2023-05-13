@@ -2,14 +2,13 @@
 
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="320.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mobility_scv_maven.MainController">
+<AnchorPane prefHeight="320.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mobility_scv_maven.MainController">
    <children>
       <BorderPane fx:id="pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
@@ -47,59 +46,51 @@
             </HBox>
          </top>
          <center>
-            <AnchorPane fx:id="pane_main" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <bottom>
-                        <HBox BorderPane.alignment="CENTER">
-                           <children>
-                              <Label text="Max Speed :">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="20.0" right="20.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label fx:id="lblspeed" text="0.000">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets right="20.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label text="Km/h">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </bottom>
+         <AnchorPane fx:id="pane_main" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+               <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <bottom>
+                     <HBox BorderPane.alignment="CENTER">
+                        <children>
+                           <Label text="Max Speed :">
+                              <font>
+                                 <Font size="20.0" />
+                              </font>
+                              <HBox.margin>
+                                 <Insets left="20.0" right="20.0" />
+                              </HBox.margin>
+                           </Label>
+                           <Label fx:id="lblSpeed" text="0.000">
+                              <font>
+                                 <Font size="20.0" />
+                              </font>
+                              <HBox.margin>
+                                 <Insets right="20.0" />
+                              </HBox.margin>
+                           </Label>
+                           <Label text="Km/h">
+                              <font>
+                                 <Font size="20.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </HBox>
+                  </bottom>
                      <center>
-                        <ScrollPane fx:id="scroll" fitToHeight="true" hbarPolicy="ALWAYS" maxWidth="1.7976931348623157E308" vbarPolicy="NEVER" BorderPane.alignment="CENTER">
-                          <content>
-                            <AnchorPane>
-                                 <children>
-                                    <LineChart fx:id="LineChart" animated="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                       <xAxis>
-                                          <NumberAxis autoRanging="false" lowerBound="0" maxWidth="1.7976931348623157E308" tickLength="5.0" tickUnit="5" upperBound="30.0" fx:id="xAxis" />
-                                       </xAxis>
-                                       <yAxis>
-                                          <NumberAxis fx:id="yAxis" autoRanging="false" lowerBound="0" tickLength="5.0" tickUnit="5" upperBound="20" />
-                                       </yAxis>
-                                    </LineChart>
-                                 </children>
-                              </AnchorPane>
-                          </content>
-                           <cursor>
-                              <Cursor fx:constant="NONE" />
-                           </cursor>
-                        </ScrollPane>
+                        <LineChart fx:id="lineChart" cache="true" cacheHint="SPEED" legendVisible="false" BorderPane.alignment="CENTER">
+                          <xAxis>
+                            <NumberAxis autoRanging="false" lowerBound="1" side="BOTTOM" tickLength="5" tickUnit="5" upperBound="30" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis animated="false" autoRanging="false" side="TOP" upperBound="30.0" />
+                          </yAxis>
+                           <BorderPane.margin>
+                              <Insets right="10.0" />
+                           </BorderPane.margin>
+                        </LineChart>
                      </center>
-                  </BorderPane>
-               </children></AnchorPane>
+               </BorderPane>
+            </children></AnchorPane>
          </center>
       </BorderPane>
    </children>
