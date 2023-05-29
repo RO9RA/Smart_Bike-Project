@@ -1,16 +1,11 @@
 package com.example.mobility_scv_maven;
-
-import com.sun.tools.javac.Main;
 import javafx.concurrent.Task;
 
 import java.io.*;
-import java.nio.ByteBuffer;
-import java.util.*;
 
 public class DataTask extends Task<Void> {
-    static String data[];
-    static int dataSignal;
-
+    static char dataSignal;
+    //static int dataSignal;
     @Override
     protected Void call() throws Exception {
         //running() checking How to use - 05.11
@@ -20,31 +15,48 @@ public class DataTask extends Task<Void> {
         try{
             // Connect DB
             DBHandler.connect();
-            //Init DBTable
-            DBHandler.InitTable();
             // Connect DBTable
             DBHandler.createTable();
+            //Init DBTable
+            DBHandler.InitTable();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        while(!isCancelled()){
-            RemoteDevice.out.write(dataSignal);
+        InputStreamReader isr = new InputStreamReader(RemoteDevice.in);
+        BufferedReader br = new BufferedReader(isr);
+        boolean check=false;
 
-            if(RemoteDevice.in.available()>=0){
-                InputStreamReader isr = new InputStreamReader(RemoteDevice.in);
-                BufferedReader br = new BufferedReader(isr);
-                try {
-                    //문자열 한줄 입력받기
-                    String strRead = br.readLine();
-                    data = strRead.split(",");
-                    DBHandler.insertData(data);
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+        while(!isCancelled()){
+            if(dataSignal=='o'&&check){
+                if(RemoteDevice.in.available()>0){
+                    try {
+                        //문자열 한줄 입력받기
+                        String strRead = br.readLine();
+                        if(!strRead.equals("o")){
+                            String data[];
+                            data = strRead.split(",");
+                            System.out.println("dd"+data[0]);
+                            System.out.println("cc"+data[1]);
+                            DBHandler.InsertDataRead(data);
+                        }
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }else{
+                RemoteDevice.out.write(dataSignal);
+                String strRead = br.readLine();
+                System.out.println(strRead);
+                if(strRead.equals("o")){
+                    check = true;
+                }else{
+                    check=false;
                 }
             }
         }
+        System.out.println("error point dataTask");
         return null;
     }
 }

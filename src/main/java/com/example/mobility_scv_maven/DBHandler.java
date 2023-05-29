@@ -1,11 +1,14 @@
 package com.example.mobility_scv_maven;
 
+import javafx.scene.chart.XYChart;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Queue;
 
 public class DBHandler {
     private static Connection DBconn;
+    static int rowid=0;
 
     public static Connection connect() {
         try {
@@ -19,29 +22,28 @@ public class DBHandler {
     }
 
     public static void createTable() {
-        String sql = "CREATE TABLE IF NOT EXISTS USERDATA (Speed TEXT, X TEXT, Y TEXT, Z TEXT);";
+        String sqlSpeed = "CREATE TABLE IF NOT EXISTS READDATA (Speed TEXT,Distance TEXT);";
         try (Statement stmt = DBconn.createStatement()) {
-            stmt.execute(sql);
+            stmt.execute(sqlSpeed);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public static void InitTable(){
-        String sql = "DROP TABLE IF EXISTS USERDATA";
+        String sql = "DELETE FROM READDATA";
         try (Statement stmt = DBconn.createStatement()) {
-            stmt.execute(sql);
+            stmt.executeUpdate(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static void insertData(String data[]) {
-        String sql = "INSERT INTO USERDATA (Speed,X,Y,Z) VALUES (?, ?, ?, ?);";
+    public static void InsertDataRead(String[] data) {
+        String sql = "INSERT INTO READDATA (Speed,Distance) VALUES (?,?);";
         try (PreparedStatement pstmt = DBconn.prepareStatement(sql)) {
-            for(int i=0; i<data.length; i++){
-                pstmt.setString(i+1, data[i]);
-            }
+            pstmt.setString(1, data[0]);
+            pstmt.setString(2,data[1]);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,7 +52,7 @@ public class DBHandler {
 
     public static String Max_data(){
         String data = null;
-        String sql = "select MAX(X) from USERDATA;";
+        String sql = "select MAX(CAST(Speed AS DECIMAL)) from READDATA WHERE Speed IS NOT NULL;";
         try(Statement stmt = DBconn.createStatement();
             ResultSet rs = stmt.executeQuery(sql)) {
             data = rs.getString(1);
@@ -61,40 +63,28 @@ public class DBHandler {
         return data;
     }
 
-    public static ArrayList<Integer> speed_data() throws SQLException {
-        ArrayList<Integer> data = new ArrayList<>();
-        int dataCount = 0;
-        String sql,sqlDataCount = "select count(X) from USERDATA";
+
+    public static ArrayList<String> speed_DIstance_data() throws SQLException {
+        ArrayList<String> data=new ArrayList<>();
+        String sql = "SELECT Speed,Distance FROM READDATA WHERE ROWID = (SELECT MAX(ROWID) FROM READDATA) AND Speed IS NOT NULL;";
         try(Statement stmt = DBconn.createStatement();
-            ResultSet rsCount = stmt.executeQuery(sqlDataCount)){
-            dataCount = rsCount.getInt(1);
-
-            if(dataCount < 30){
-                sql = "select X from USERDATA limit 30 offset 0";
-            }else{
-                sql = "select X from USERDATA limit 30 offset "+(dataCount-29);
-            }
-
-            try(ResultSet rs = stmt.executeQuery(sql)){
-                while (rs.next()) {
-                    data.add(rs.getInt(1));
-                }
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
+            ResultSet rs = stmt.executeQuery(sql)) {
+            data.add(rs.getString(1));
+            data.add(rs.getString(2));
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return data;
     }
 
-//    public static void close() {
-//        try {
-//            DBconn.close();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println("DB Close");
-//    }
+    public static void close() {
+        try {
+            DBconn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("DB Close");
+    }
 }

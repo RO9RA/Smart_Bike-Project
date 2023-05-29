@@ -12,7 +12,6 @@ public class RemoteDevice{
     static InputStream in;
     static OutputStream out;
 
-
     //Bluetooth DB Searching Code
     public static void RemoteDeviceDiscovery() throws IOException, InterruptedException {
 

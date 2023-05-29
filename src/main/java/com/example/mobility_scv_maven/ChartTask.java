@@ -2,22 +2,25 @@ package com.example.mobility_scv_maven;
 
 import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.shape.Arc;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ChartTask extends Task {
-    private LineChart lineChart;
-    private Label lblSpeed;
-    ChartTask(LineChart<String, Number> lineChart, Label lblSpeed) {
-        this.lineChart = lineChart;
+    private Label lblSpeed,lblDistance,maxSpeed;
+    private Arc speedArc;
+    ChartTask(Label lblSpeed,Label lblDistacne, Label maxSpeed,Arc speedArc) {
         this.lblSpeed = lblSpeed;
+        this.lblDistance = lblDistacne;
+        this.maxSpeed = maxSpeed;
+        this.speedArc = speedArc;
     }
+
     @Override
-    protected Object call() throws SQLException {
+    protected Object call() throws InterruptedException {
+
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -25,36 +28,30 @@ public class ChartTask extends Task {
         }
 
         System.out.println("chart thread start");
-        XYChart.Series series1 = new XYChart.Series();
 
-        while(!isCancelled()) {
-            ArrayList<Integer> finalSpeed = DBHandler.speed_data();
-
+        while (!isCancelled()) {
             Platform.runLater(() -> {
-                if(finalSpeed.size() <= 30){
-                    for (int i = 0; i < finalSpeed.size(); i++) {
-                        series1.getData().add(new XYChart.Data<>(i + 1, finalSpeed.get(i)/75));
-                    }
+                ArrayList<String> data;
+                try {
+                    data = DBHandler.speed_DIstance_data();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
                 }
+                lblSpeed.setText(data.get(0));
+                maxSpeed.setText(DBHandler.Max_data());
+                lblDistance.setText(data.get(1));
 
-                lineChart.setAnimated(true);
-                if(lineChart.getData().isEmpty()) {
-                    System.out.println("is Empty");
-                    lineChart.getData().add(series1);
-                    //this.lineChart.setAnimated(false);
+                double length = Double.parseDouble(data.get(0))/50.0 * 270; // 진행 상태에 따른 길이 계산
+                if(length != 0){
+                    speedArc.setLength(length);
+                }else{
+                    speedArc.setLength(1.0);
                 }
-                series1.getData().clear();
-                lineChart.setAnimated(false);
-
-                lblSpeed.setText(DBHandler.Max_data());
             });
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            Thread.sleep(500);
         }
+
         return null;
     }
 }
+

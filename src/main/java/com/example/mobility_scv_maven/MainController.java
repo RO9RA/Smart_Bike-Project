@@ -7,7 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,29 +20,36 @@ import java.util.logging.Logger;
 
 public class MainController implements Initializable {
     @FXML private BorderPane pane;
-    @FXML private Label lblDate,lblSpeed;
-    @FXML private JFXButton export_btn,str_btn,stp_btn;
-    @FXML private LineChart lineChart;
+    @FXML private Label lblDate,lblSpeed,lblDistance,maxSpeed;
+    @FXML private JFXButton str_btn,end_btn,stp_btn;
+    @FXML private Arc speedArc;
 
     Thread threadData,threadChart,threadTime;
+    TimeTask timeTask;
+    DataTask dataTask;
+    ChartTask chartTask;
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        TimeTask timeTask = new TimeTask(lblDate);
+
+        end_btn.setDisable(true);
+        stp_btn.setDisable(true);
+
+        timeTask = new TimeTask(lblDate);
         threadTime = new Thread(timeTask);
         threadTime.setDaemon(true);
         threadTime.start();
 
-        DataTask dataTask = new DataTask();
+        dataTask = new DataTask();
         threadData = new Thread(dataTask);
-        ChartTask chartTask = new ChartTask(lineChart,lblSpeed);
+        chartTask = new ChartTask(lblSpeed,lblDistance,maxSpeed,speedArc);
         threadChart = new Thread(chartTask);
     }
 
     @FXML
     private void click_start() throws IOException {
 
-        DataTask.dataSignal=1;
+        DataTask.dataSignal='o';
         //멀티 스래드를 사용
         //background Service 지정 - Data receive Thread 시작
         threadData.setDaemon(true);
@@ -48,34 +58,22 @@ public class MainController implements Initializable {
         threadChart.start();
         //btn state
         str_btn.setDisable(true);
-        export_btn.setDisable(true);
+        stp_btn.setDisable(false);
+        end_btn.setDisable(true);
     }
 
     @FXML
     private void click_stop() throws IOException{
-        //Thread_state=false;
-        DataTask.dataSignal=0;
-
-        str_btn.setDisable(false);
-        export_btn.setDisable(false);
+        DataTask.dataSignal='x';
+        dataTask.cancel();
+        chartTask.cancel();
+        end_btn.setDisable(false);
         System.out.println("stop");
     }
 
     @FXML
-    private void click_Export() throws IOException {
-        loadPage("Export");
+    private void click_end() throws IOException {
+        DBHandler.close();
         RemoteDevice.Disconnect();
-        str_btn.setDisable(true);
-        stp_btn.setDisable(true);
-
-    }
-
-    private void loadPage(String page) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(page + ".fxml"));
-            pane.setCenter(root);
-        } catch (IOException ex) {
-            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 }

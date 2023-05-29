@@ -15,7 +15,7 @@ public class TimeTask extends Task {
         this.lblDate = lblDate;
     }
     @Override
-    protected Object call() throws Exception {
+    protected Object call(){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd  /  HH : mm", Locale.KOREA);
         while(true) {
             String Time = sdf.format(new Date());
