@@ -8,16 +8,17 @@
 <AnchorPane prefHeight="320.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mobility_scv_maven.StartController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mobility_SCV_Demo" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="40.0" />
-               </font>
-            </Text>
-         </center>
          <bottom>
             <VBox alignment="CENTER" BorderPane.alignment="CENTER">
                <children>
+                  <Label fx:id="btStatelbl" text="&lt; Click button and Wait Pleas &gt;" textAlignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Label>
                   <Button mnemonicParsing="false" onMouseClicked="#OnConnectAction" text="Start_btn">
                      <font>
                         <Font size="25.0" />
@@ -29,6 +30,13 @@
                </children>
             </VBox>
          </bottom>
+         <center>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HealthCare Project" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

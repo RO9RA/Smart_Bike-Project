@@ -9,23 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed4821cc-757f-4414-a7f0-3f7f59778c77" name="Changes" comment="3.Modify the program code(Thread/DBHandler)">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Mobility_SCV_Maven_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ed4821cc-757f-4414-a7f0-3f7f59778c77" name="Changes" comment="4.First End">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bluecove-2.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/bluecove-gpl-2.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/ChartTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/ChartTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DBHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DBHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DataTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/DataTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/ExportController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/RemoteDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/RemoteDevice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/StartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/StartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/TimeTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/mobility_scv_maven/TimeTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Export.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Page_main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Page_main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Start_page.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/mobility_scv_maven/Start_page.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,8 +63,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/test/workspace/javafx/bluecove-gpl-2.1.0.jar",
-    "project.structure.last.edited": "Artifacts",
+    "last_opened_file_path": "/home/test/workspace/IdeaProjects/Mobility_SCV_Maven/lib",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.12804097",
     "project.structure.side.proportion": "0.17379436",
     "service.view.auto.scroll.to.source": "true",
@@ -96,7 +83,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.Mobility_SCV_Maven.jar">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.mobility_scv_maven.MainAct" />
       <module name="Mobility_SCV_Maven" />
@@ -105,12 +92,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Mobility_SCV_Maven.jar" type="JarApplication">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Mobility_SCV_Maven_jar/Mobility_SCV_Maven.jar" />
-      <option name="VM_PARAMETERS" value="--module-path $PROJECT_DIR$/../../javafx/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method v="2" />
-    </configuration>
     <configuration name="bluecove-gpl-2.1.0.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/lib/bluecove-gpl-2.1.0.jar" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -118,7 +99,6 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JAR Application.Mobility_SCV_Maven.jar" />
       <item itemvalue="JAR Application.bluecove-gpl-2.1.0.jar" />
     </list>
     <recent_temporary>
@@ -157,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683985772104</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="4.First End">
+      <created>1685381635283</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685381635283</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,7 +163,8 @@
     <MESSAGE value="1.Demo Version completed" />
     <MESSAGE value="2.Modify thread related code" />
     <MESSAGE value="3.Modify the program code(Thread/DBHandler)" />
-    <option name="LAST_COMMIT_MESSAGE" value="3.Modify the program code(Thread/DBHandler)" />
+    <MESSAGE value="4.First End" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.First End" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
